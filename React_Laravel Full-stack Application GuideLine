@@ -1,0 +1,70 @@
+## React + Laravel Full-stack Application
+
+run cmd => laravel new laravel-react-full-stack
+create db => 'laravel_react_full_stack' with utf8-general-ci collation
+run cmd => php artisan migrate
+run cmd => php artisan serve
+run cmd => npm create vite -> Y -> project name 'react' -> choose "React" & "Javascript"
+------- => cd react => npm install => npm run dev
+
+react > package.json > "scripts" "dev": vite --port=3000
+
+run cmd => npm install react-router-dom -S
+------- => npm install -S axios
+
+create .env file under "react" folder
+
+run cmd under root folder => php artisan make:controller Api/AuthController
+run cmd under root folder => php artisan make:controller Api/UserController
+------------------------- => php artisan make:request LoginRequest
+------------------------- => php artisan make:request SignupRequest
+------------------------- => php artisan make:request StoreUserRequest
+------------------------- => php artisan make:request UpdateUserRequest
+------------------------- => php artisan make:resource UserResource
+
+xxxxxxxxxxxxxxxxxxxxxxxx
+
+EarthLink db tables
+
+## Customer_tbl
+
+id, first_name, last_name, customer_user_id, customer_user_index, mobile_number, mobile_number2, address, email, city, user_active_manage, company, state, display_name, caller_id, customer_user_notes, created_at, updated_at
+
+[FirstName, LastName, UserID, MobileNumber, MobileNumber2, Address, Email, City
+UserActiveManage, Company, State, DisplayName, CallerID, UserNotes]
+
+## Account_tbl
+
+id, account_index, account_name, is_max_account, account_description, account_image_path, account_thumbnail, end_user_account_price, account_price, created_at, updated_at
+
+[accountIndex, accountName, accountDescription, accountImagePath, endUserAccountPrice]
+
+## CustomerAccount_tbl
+
+id, customer_id, customer_user_id, account_id, account_index, created_at, updated_at
+
+---
+
+## From Old system [For EarthLink]
+
+Users => search existing users to edit/ create new
+full_name, email, phone_number, address, type_of_company, sub_type, subscription_price, subscription_password, google_coordinates, considerations(textarea), status[guest]
+
+Open Ticket for user
+user_id, ticket_source[Phone, Email, Other], topic[inquiries, subscriber data, maintenance, the accounts, administration], ticket_address, level_of_importance[not important, normal, a task, very important], ticket_number
+
+Agent
+name, department[accounts, technical support, administration], email, phone_number, ext_number, mobile_number
+
+Assign ticket to agent
+ticket_id, agent_id, ticket_status[open, closed]
+
+Add New Task
+title, desc, agent_id, due_date
+
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+User follow
+Affiliates - Index, Name, Account Type -> check balance & set new user with deposit
+
+Role -> admin, staff
